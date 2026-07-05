@@ -3,6 +3,8 @@
 A Formula 1 analytics dashboard exploring 25 seasons of real race data
 (2000–2024), built with Streamlit and Plotly.
 
+🔗 **[Live Demo](https://f1-analysis-7mjbmp44urhfpruvvurldn.streamlit.app/)**
+
 ## What's inside
 
 - **`src/data_prep.py`** – cleans the raw race dataset, fixes a couple of
