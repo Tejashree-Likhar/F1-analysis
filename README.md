@@ -60,11 +60,6 @@ the (cumulative) `points` column.
    - macOS/Linux: `source .venv/bin/activate`
    - Windows (PowerShell): `.venv\Scripts\Activate.ps1`
 
-   VS Code will usually prompt "Select this environment for the workspace?"
-   — click **Yes**. If not, open the Command Palette
-   (`Cmd/Ctrl+Shift+P`) → **Python: Select Interpreter** → pick the one
-   inside `.venv`.
-
 3. **Install dependencies:**
 
    ```bash
@@ -77,59 +72,9 @@ the (cumulative) `points` column.
    streamlit run app.py
    ```
 
-   VS Code will show a clickable `http://localhost:8501` link in the
-   terminal — open it, or it should open automatically in your browser.
-
-5. **(Optional) Regenerate the data/models** if you ever change
-   `data_prep.py` or `train_model.py`:
+5. **Generate the data/models:**
 
    ```bash
    python src/data_prep.py
    python src/train_model.py
    ```
-
-   > If you retrain on your machine, the `.joblib` files will be built with
-   > *your* installed scikit-learn version, avoiding cross-version pickle
-   > errors (e.g. `ModuleNotFoundError: No module named '_loss'`) that can
-   > happen when loading a model pickled by a different sklearn version.
-
-## Pushing this project to GitHub
-
-From the project folder's terminal:
-
-```bash
-git init
-git add .
-git commit -m "Initial commit: F1 insights dashboard"
-```
-
-Then create a new, empty repository on GitHub (no README/license, so it
-stays empty), copy its URL, and run:
-
-```bash
-git branch -M main
-git remote add origin https://github.com/<your-username>/<your-repo-name>.git
-git push -u origin main
-```
-
-You'll be prompted to sign in to GitHub the first time (VS Code's built-in
-Git support, the GitHub CLI `gh auth login`, or a personal access token all
-work).
-
-## Putting up a live demo (Streamlit Community Cloud)
-
-Once the repo is on GitHub, the easiest way to get a public, shareable link
-is [Streamlit Community Cloud](https://share.streamlit.io) — it's free for
-public repos.
-
-1. Go to **share.streamlit.io** and sign in with your GitHub account.
-2. Click **"New app"**.
-3. Pick your repository and branch (`main`), and set **Main file path** to
-   `app.py`.
-4. Click **Deploy**.
-
-It installs everything from `requirements.txt` automatically and gives you
-a URL like `https://<something>.streamlit.app` that anyone can open — no
-one needs to run anything locally. Redeploys happen automatically every
-time you push to `main`.
-
